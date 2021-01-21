@@ -1,3 +1,5 @@
+import { FETCH_QR_START, FETCH_QR_SUCCESS, FETCH_QR_FAIL } from './..actions';
+
 const initialState = {
   url: '',
   isFetching: false,
@@ -13,7 +15,7 @@ export const reducer = (state = initialState, action) => {
         isFetching: true,
         error: ''
       };
-    case FETCH_QR_SUCESS:
+    case FETCH_QR_SUCCESS:
       return {
         ...state,
         url: action.payload,
