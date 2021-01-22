@@ -1,7 +1,7 @@
-import { FETCH_QR_START, FETCH_QR_SUCCESS, FETCH_QR_FAIL } from './..actions';
+import { FETCH_QR_START, FETCH_QR_SUCCESS, FETCH_QR_FAIL } from '../actions';
 
 const initialState = {
-  url: '',
+  quote: '',
   isFetching: false,
   error: ''
 };
@@ -11,14 +11,14 @@ export const reducer = (state = initialState, action) => {
     case FETCH_QR_START:
       return {
         ...state,
-        url: '',
+        quote: '',
         isFetching: true,
         error: ''
       };
     case FETCH_QR_SUCCESS:
       return {
         ...state,
-        url: action.payload,
+        quote: action.payload.data.text,
         isFetching: false,
         error: ''
       };

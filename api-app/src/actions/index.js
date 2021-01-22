@@ -5,17 +5,19 @@ export const FETCH_QR_SUCCESS = 'FETCH_QR_SUCCESS';
 export const FETCH_QR_FAIL = 'FETCH_QR_FAIL';
 
 //find a way to get the URL value from App.js to this file
-// const URL =
+// const url =
 
-export const getQR = () => {
-  dispatchEvent({ type: FETCH_QR_START });
+export const getQuote = () => (dispatch) => {
+  dispatch({ type: FETCH_QR_START });
   axios
-    .get(`https://api.qrserver.com/v1/create-qr-code/?data=${URL}&size=300x300`)
+    .get(`https://uselessfacts.jsph.pl/random.json?language=en`)
     .then((res) => {
       console.log(res);
-      //read this log data to find out how to label the QR image (res.data.QR_img  <-- something like that?)
+      //set the state of quote here
+      dispatch({ type: FETCH_QR_SUCCESS, payload: res });
     })
     .catch((error) => {
       console.log(error);
+      dispatch({ type: FETCH_QR_FAIL, payload: error });
     });
 };

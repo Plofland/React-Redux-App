@@ -1,26 +1,25 @@
 import React from 'react';
-import { getQR } from './actions';
+import { getQuote } from './actions';
+import { connect } from 'react-redux';
 import './App.css';
 
-function App() {
-  //make a new slice of state
-  //would this be local state?
-  //would I have to add it to the store so that the action can have access to it?
-
-  //add a submit handler here
-  const handleSubmit = () => {
-    getQR();
-    //set state here with URL value (e.target.value)
-  };
-
+function App(props) {
   return (
     <div className="App">
-      <h1>Change any URL into a QR Code</h1>
-      <input type="text" value={URL} placeholder="Paste URL here"></input>
+      <h1>Like Random Useless Information?</h1>
+      <p>{props.quote}</p>
       {/* add a click listener here */}
-      <button onClick={handleSubmit}>Submit</button>
+      <button onClick={() => props.getQuote()}>Learn Something New</button>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    quote: state.quote,
+    isFetching: state.isFetching,
+    error: state.error
+  };
+};
+
+export default connect(mapStateToProps, { getQuote })(App);
