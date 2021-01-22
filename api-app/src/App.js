@@ -8,7 +8,6 @@ function App(props) {
     <div className="App">
       <h1>Like Random Useless Information?</h1>
       <p>{props.quote}</p>
-      {/* add a click listener here */}
       <button onClick={() => props.getQuote()}>Learn Something New</button>
     </div>
   );

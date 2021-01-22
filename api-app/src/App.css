@@ -1,3 +1,18 @@
 .App {
   text-align: center;
+  padding: 3%;
+  border-radius: 10px;
+  background-color: rgb(64, 119, 163);
+  box-shadow: 
+    /* top */ rgba(255, 255, 255, 0.15) 0px -6px 10px,
+    /* right */ rgba(255, 255, 255, 0.15) 6px 0px 10px,
+    /* bottom */ rgba(255, 255, 255, 0.15) 0px 6px 10px,
+    /* left */ rgba(255, 255, 255, 0.15) -6px 0px 10px;
+  border: 2px solid mintcream;
+}
+
+button {
+  background-color: #b46e46;
+  border-radius: 4px;
+  padding: 1%;
 }
